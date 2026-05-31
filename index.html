@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What's For Dinner</title>
+    <link rel="stylesheet" href="./style/styles.css" />
+    <link rel="stylesheet" href="./style.css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./style.css/all.min.css" />
+  </head>
+  <body>
+    <div id="dashboardView" class="view active">
+      <div class="app-container">
+        <aside class="sidebar">
+          <div class="sidebar-brand">
+            <i class="fas fa-box-archive"></i>
+            <span>ContactHub</span>
+          </div>
+          <nav class="sidebar-menu">
+            <a href="#" class="menu-item active" id="filterAll"
+              ><i class="fas fa-users"></i> كل جهات الاتصال</a
+            >
+            <a href="#" class="menu-item" id="filterFav"
+              ><i class="fas fa-star"></i> المفضلة</a
+            >
+            <a href="#" class="menu-item" id="filterEmerg"
+              ><i class="fas fa-exclamation-triangle"></i> حالات طارئة</a
+            >
+          </nav>
+          <div class="sidebar-footer">
+          </div>
+        </aside>
+
+        <main class="main-content">
+          <header class="topbar">
+            <div class="search-wrapper">
+              <i class="fas fa-search search-icon"></i>
+              <input
+                type="text"
+                id="mainSearch"
+                placeholder="البحث بحسب الاسم، الرقم، أو البريد..."
+              />
+            </div>
+            <div class="user-profile">
+              <span
+                >أهلاً بك في <strong id="userDisplay">ContactHub</strong></span
+              >
+              <div class="avatar"><i class="fas fa-user-shield"></i></div>
+            </div>
+          </header>
+
+          <section class="content-body">
+            <div class="table-header-actions">
+              <div>
+                <h2>قائمة جهات الاتصال</h2>
+                <p>إجمالي المعروض: <span id="contactsCount">0</span></p>
+              </div>
+              <button id="openModalBtn" class="btn-primary">
+                <i class="fas fa-plus"></i> إضافة جهة اتصال
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>الاسم بالكامل</th>
+                    <th>البريد الإلكتروني</th>
+                    <th>رقم الهاتف</th>
+                    <th>الشركة / الوظيفة</th>
+                    <th>إجراءات</th>
+                  </tr>
+                </thead>
+                <tbody id="contactsTableBody">
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div id="contactModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header rounded-3">
+          <h3><i class="fas fa-user-plus"></i> إضافة جهة اتصال جديدة</h3>
+          <button id="closeModalBtn" class="close-btn">&times;</button>
+        </div>
+        <form id="contactForm">
+          <div class="modal-body">
+            <div class="input-group">
+              <label>الاسم بالكامل</label>
+              <input
+                type="text"
+                id="contactName"
+                required
+                placeholder="مثال: محمد أحمد"
+              />
+            </div>
+            <div class="input-group">
+              <label>البريد الإلكتروني</label>
+              <input
+                type="email"
+                id="contactEmail"
+                required
+                placeholder="example@mail.com"
+              />
+            </div>
+            <div class="input-group">
+              <label>رقم الهاتف</label>
+              <input
+                type="tel"
+                id="contactPhone"
+                required
+                placeholder="01xxxxxxxxx"
+              />
+            </div>
+            <div class="input-group">
+              <label>الشركة أو المسمى الوظيفي</label>
+              <input
+                type="text"
+                id="contactJob"
+                placeholder="مثال: مهندس برمجيات"
+              />
+            </div>
+            <div class="input-group checkbox-group d-flex justify-content-center ">
+              <input type="checkbox" id="contactEmergency" />
+              <label for="contactEmergency"
+                >تحديد كحالة طارئة
+                <i class="fas fa-bolt" style="color: var(--danger)"></i
+              ></label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="cancelModalBtn" class="btn-secondary">
+              إلغاء
+            </button>
+            <button type="submit" class="btn-primary">حفظ البيانات</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
